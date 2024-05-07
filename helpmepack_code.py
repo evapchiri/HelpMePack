@@ -1,3 +1,4 @@
+# Libraries
 import tkinter as tk
 from tkinter import ttk
 import requests
@@ -6,13 +7,13 @@ import urllib.request
 import math
 from PIL import Image, ImageTk
 
-
+# Setting up the app's interface
 root = tk.Tk()
 root.title("HelpMePack")
 root.configure(bg="#5DC1F2")
 root.geometry("750x650")
 
-
+# Obtaining the weather from OpenWeatherMap's API. 
 def get_weather():
     city = city_var.get()
     country = country_var.get()
@@ -47,7 +48,7 @@ def get_weather():
         city_var.set("None Selected")
         info_text.set("Please select both city and country")
 
-
+# Using the obtained weather information, fetch our packing suggestions csv using user's destination's weather conditions (sunny, rainy, etc... ) and temperature. 
 def suggest_packing(weather_condition, temperature):
     packing_url = 'https://raw.githubusercontent.com/evapchiri/HelpMePack/main/packlist.csv'
     response = urllib.request.urlopen(packing_url)
@@ -73,7 +74,7 @@ def suggest_packing(weather_condition, temperature):
     pack = list(set(pack))
     return "\n".join(pack)
 
-
+# Creating the options for possible user travel destination. To be increased.
 def update_cities(event):
     selected_country = country_var.get()
     cities_for_country = cities.get(selected_country, [])
@@ -108,7 +109,7 @@ cities = {
               "Surat", "Jaipur"]
 }
 
-
+# Designing app's UI
 tk.Label(root,
          text="Welcome to HelpMePack!\n\nThis little app will help you decide what to pack depending on the weather of your destination!"
               "\n\n Tell us where are you travelling to:", fg="black",bg="#5DC1F2",
