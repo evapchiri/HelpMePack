@@ -34,7 +34,7 @@ def get_weather():
             icon_label.configure(image=weather_icon)
             icon_label.image = weather_icon
             final_info = condition + "\n" + str(temp) + "°c"
-            final_data = "\n" + "Humidity: " + str(humidity) + " %" + "\n" + "Weather: " + str(description)
+            final_data = "\n" + "Weather: " + str(description) + "\n" + "Humidity: " + str(humidity) + " %"
 
             packing_suggestions = suggest_packing(data['weather'][0]['main'], data['main']['temp'])
             info_text.set(f"\nPacking Suggestions:\n\n{packing_suggestions}")
