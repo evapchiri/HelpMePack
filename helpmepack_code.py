@@ -13,7 +13,7 @@ root.title("HelpMePack")
 root.configure(bg="#5DC1F2")
 root.geometry("750x650")
 
-# Obtaining the weather from OpenWeatherMap's API. 
+# Obtaining the weather from OpenWeatherMap's API.
 def get_weather():
     city = city_var.get()
     country = country_var.get()
@@ -26,7 +26,7 @@ def get_weather():
             icon_id = data["weather"][0]["icon"]
             condition = data["weather"][0]["main"]
             temp = int(data["main"]["temp"])
-            pressure = data["main"]["pressure"]
+            humidity = data["main"]["humidity"]
             description = data["weather"][0]["description"]
             icon_url = f"https://openweathermap.org/img/wn/{icon_id}@2x.png"
             im = Image.open(requests.get(icon_url, stream=True).raw)
@@ -34,10 +34,10 @@ def get_weather():
             icon_label.configure(image=weather_icon)
             icon_label.image = weather_icon
             final_info = condition + "\n" + str(temp) + "°c"
-            final_data = "\n" + "pressure: " + str(pressure) + "\n" + "description: " + str(description)
+            final_data = "\n" + "Humidity: " + str(humidity) + " %" + "\n" + "Weather: " + str(description)
 
             packing_suggestions = suggest_packing(data['weather'][0]['main'], data['main']['temp'])
-            info_text.set(f"Packing Suggestions:\n{packing_suggestions}")
+            info_text.set(f"\nPacking Suggestions:\n\n{packing_suggestions}")
 
             label1.config(text=final_info)
             label2.config(text=final_data)
