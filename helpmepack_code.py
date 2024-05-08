@@ -50,13 +50,16 @@ def get_weather():
 
 # Using the obtained weather information, fetch our packing suggestions csv using user's destination's weather conditions (sunny, rainy, etc... ) and temperature. 
 def suggest_packing(weather_condition, temperature):
+    # Fetching the csv stored in the online repository
     packing_url = 'https://raw.githubusercontent.com/evapchiri/HelpMePack/main/packlist.csv'
     response = urllib.request.urlopen(packing_url)
-    csv_data = response.read().decode('utf-8')
-    data_rows = csv.reader(csv_data.splitlines())
+    # Reading the fetched file and decoding the returned bytes into a intelligible language i.e. UTF-8 characters
+    raw_data = response.read().decode('utf-8')
+    # Using CSV library to then split the raw data to convert it into a iterable, raw splitted, csv file
+    csv_file = csv.reader(raw_data.splitlines())
 
     pack = []
-    for row in data_rows:
+    for row in csv_file:
         if row[0] == weather_condition:
             pack.append(row[1])
 
@@ -67,7 +70,7 @@ def suggest_packing(weather_condition, temperature):
     else:
         rounded_temperature = str(int(math.ceil(temperature / 5.0)) * 5)
 
-    for row in data_rows:
+    for row in csv_file:
         if row[2] == rounded_temperature:
             pack.append(row[3])
 
