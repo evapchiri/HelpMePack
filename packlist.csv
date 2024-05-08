@@ -1,0 +1,53 @@
+weather_cond,pack_item,temp_up_to,pack_item_2
+Thunderstorm,Umbrella,0,Winter coat
+Thunderstorm,Raincoat or waterproof jacket,0,Warm hat
+Thunderstorm,Waterproof shoes or boots,0,Gloves
+Thunderstorm,Raincoat or waterproof jacket,0,Scarf
+Drizzle,Umbrella,0,Wool socks
+Drizzle,Raincoat or waterproof jacket,0,Thermals
+Drizzle,Waterproof shoes or boots,5,Wool socks
+Rain,Umbrella,5,Jacket or coat
+Rain,Raincoat or waterproof jacket,5,Sweater or fleece
+Rain,Waterproof pants,5,Long-sleeve shirts
+Rain,Waterproof shoes or boots,5,Jeans or pants
+Rain,Waterproof backpack,5,Closed-toe shoes or boots
+Snow,Gloves,10,Light jacket or hoodie
+Snow,Winter coat,10,T-shirts or long-sleeve shirts
+Snow,Snow boots,10,Jeans or pants
+Snow,Salopettes,10,Closed-toe shoes or boots
+Snow,Snow shovel or brush (for clearing snow from car),10,Beanie or hat
+Snow,Scarf,10,T-shirts or long-sleeve shirts
+Snow,Warm hat,10,Light jacket or hoodie
+Mist,Moisturizer or lip balm,10,Shorts or light pants
+Mist,Sunglasses (to reduce glare),10,Sunglasses
+Mist,Quick-drying clothing,10,Closed-toe shoes or sneakers
+Smoke,N95 masks or respirators (for protection against dangerous particles),15,Light jacket or sweater
+Smoke,Eye drops (to soothe irritated eyes),15,T-shirts or long-sleeve shirts
+Smoke,Air purifier (if staying indoors for an extended period),15,Jeans or pants
+Haze,N95 masks or respirators (for protection against dangerous particles),15,Closed-toe shoes or sneakers
+Haze,Eye drops (to soothe irritated eyes),15,Sunglasses
+Haze,Air purifier (if staying indoors for an extended period),20,T-shirts or tank tops
+Dust,N95 masks or respirators (for protection against dangerous particles),20,Shorts or light pants
+Dust,Wet wipes (for cleaning surfaces),20,Sunglasses
+Dust,Eye drops (to soothe irritated eyes),20,Sunscreen
+Fog,Reflective clothing or accessories (for visibility),20,Hat or cap
+Fog,Headlamp or flashlight (for visibility),25,T-shirts or tank tops
+Sand,Sunglasses (to protect eyes from blowing sand),25,Swim wear
+Sand,Scarf or bandana (to cover nose and mouth),25,Shorts or light pants
+Sand,Closed-toe shoes or boots,25,Sunglasses
+Ash,N95 masks or respirators (for protection against dangerous particles),25,Sunscreen
+Ash,Eye drops (to soothe irritated eyes),25,Hat or cap
+Ash,Wet wipes (for cleaning surfaces),25,Sandals or breathable shoes
+Squall,Windproof jacket or coat,30,swim wear
+Squall,Hat with chin strap,30,Lightweight and breathable clothing
+Squall,Gloves,30,Shorts or skirt
+Tornado,"Emergency kit including food, water, first aid supplies, flashlight, and batteries",30,Tank tops or light shirts
+Tornado,Portable weather radio,30,Sunglasses
+Tornado,Important documents (in waterproof container),30,Sunscreen
+Tornado,Whistle or signaling device,30,Hat or cap
+Clear,Sunglasses,30,Sandals or breathable shoes
+Clear,Sunscreen,,
+Clear,Hat or cap for sun protection,,
+Clear,Water bottle,,
+Clouds,Umbrella in case of precipitation,,
+Clouds,Sunglasses (for glare from sun through clouds),,
