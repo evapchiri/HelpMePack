@@ -1,22 +1,10 @@
-#Check if the user has (pip) installed the required modules
-try:
-    import tkinter as tk
-    from tkinter import ttk
-    import requests
-    import csv
-    import urllib.request
-    import math
-    from PIL import Image, ImageTk
-except ImportError:
-    import subprocess
-    import os
-    # use os.path to get absolute path for requirements.txt, and user's app directory - working in either windows and linux-based
-    requirements_path = os.path.abspath("requirements.txt")
-    users_directory = os.path.abspath("helpmepack_code.py")
-    installer = subprocess.run(['pip', 'install', '-r', requirements_path])
-    if installer.returncode == 1:
-        print(f"There was an ERROR while installing the needed modules to make HelpMePack work.\nPlease ensure you have"
-              f"the 'requirements.txt' file in your app's directory: {users_directory}.")
+import tkinter as tk
+from tkinter import ttk
+import requests
+import csv
+import urllib.request
+import math
+from PIL import Image, ImageTk
 
 # Setting up the app's interface
 root = tk.Tk()
@@ -161,22 +149,22 @@ f = ("verdana", 12, "bold")
 t = ("poppins", 18, "bold")
 k = ("verdana", 9, "bold")
 
+submit_button = tk.Button(root, text="Suggest me what to pack", command=get_weather, fg="white", bg="#4169E1",
+                          font=("Arial", 12, "bold"))
+submit_button.grid(row=3, column=0, columnspan=2, pady=10)
 
 icon_label = tk.Label(root, bg="#5DC1F2")
-icon_label.grid(row=3, column=0, columnspan=2, padx=5, pady=5)
+icon_label.grid(row=4, column=0, columnspan=2, padx=2, pady=0)
 label1 = tk.Label(root, font=t, fg="#44387D", bg="#5DC1F2", )
-label1.grid(row=4, column=0, columnspan=2, padx=2, pady=2)
+label1.grid(row=5, column=0, columnspan=2, padx=2, pady=0)
 label2 = tk.Label(root, font=f, fg="#44387D", bg="#5DC1F2")
-label2.grid(row=5, column=0, columnspan=2, padx=2, pady=2)
+label2.grid(row=6, column=0, columnspan=2, padx=2, pady=0)
 info_text = tk.StringVar()
 label3 = tk.Label(root, font=k, fg="#44387D", bg="#5DC1F2", textvariable=info_text, wraplength=1000)
-label3.grid(row=6, column=0, columnspan=2, padx=2, pady=2)
+label3.grid(row=7, column=0, columnspan=2, padx=2, pady=2)
 
 
 country_dropdown.bind("<<ComboboxSelected>>",update_cities)
 
-submit_button = tk.Button(root, text="Suggest me what to pack", command=get_weather, fg="white", bg="#4169E1",
-                          font=("Arial", 12, "bold"))
-submit_button.grid(row=7, column=0, columnspan=2, pady=40)
 
 root.mainloop()
