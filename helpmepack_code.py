@@ -1,4 +1,4 @@
-#Check if the user has (pip) installed the required dependencies
+#Check if the user has (pip) installed the required modules
 try:
     import tkinter as tk
     from tkinter import ttk
@@ -8,9 +8,15 @@ try:
     import math
     from PIL import Image, ImageTk
 except ImportError:
-    print("You don't have installed all the needed Libraries to make this project run!\nPlease download our "
-          "requirements.txt from 'github.com/evapchiri/HelpMePack' and place it in the same Virtual Environment\n- then, run this code in your terminal "
-          "'pip install -r requirements.txt'.")
+    import subprocess
+    import os
+    # use os.path to get absolute path for requirements.txt, and user's app directory - working in either windows and linux-based
+    requirements_path = os.path.abspath("requirements.txt")
+    users_directory = os.path.abspath("helpmepack_code.py")
+    installer = subprocess.run(['pip', 'install', '-r', requirements_path])
+    if installer.returncode == 1:
+        print(f"There was an ERROR while installing the needed modules to make HelpMePack work.\nPlease ensure you have"
+              f"the 'requirements.txt' file in your app's directory: {users_directory}.")
 
 # Setting up the app's interface
 root = tk.Tk()
