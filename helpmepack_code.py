@@ -1,11 +1,16 @@
-# Libraries
-import tkinter as tk
-from tkinter import ttk
-import requests
-import csv
-import urllib.request
-import math
-from PIL import Image, ImageTk
+#Check if the user has (pip) installed the required dependencies
+try:
+    import tkinter as tk
+    from tkinter import ttk
+    import requests
+    import csv
+    import urllib.request
+    import math
+    from PIL import Image, ImageTk
+except ImportError:
+    print("You don't have installed all the needed Libraries to make this project run!\nPlease download our "
+          "requirements.txt from 'github.com/evapchiri/HelpMePack' and place it in the same Virtual Environment\n- then, run this code in your terminal "
+          "'pip install -r requirements.txt'.")
 
 # Setting up the app's interface
 root = tk.Tk()
