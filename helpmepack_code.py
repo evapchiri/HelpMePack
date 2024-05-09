@@ -2,7 +2,7 @@
 try:
     import tkinter as tk
     from tkinter import ttk
-    import requests.get
+    import requests
     import csv
     import urllib.request
     import math
