@@ -15,12 +15,15 @@ root.geometry("750x650")
 
 # Obtaining the weather from OpenWeatherMap's API.
 def get_weather():
+    #get city and country from the interface
     city = city_var.get()
     country = country_var.get()
+    #call the API if we have a city and country submitted
     if city and country:
         url = f"https://api.openweathermap.org/data/2.5/weather?q={city},{country}&appid=3f75a000df4eaf2eccf4c5bfb86e943e&units=metric"
         response = requests.get(url)
         data = response.json()
+        #if we get a response, get the details from the API
         if response.status_code == 200:
 
             icon_id = data["weather"][0]["icon"]
@@ -41,14 +44,15 @@ def get_weather():
 
             label1.config(text=final_info)
             label2.config(text=final_data)
-
+        #if we don't then there's smth wrong with the location
         else:
             info_text.set("City not found")
+    #if they click the get packing suggestion button without a city and country, give an error message
     else:
         city_var.set("None Selected")
         info_text.set("Please select both city and country")
 
-# Using the obtained weather information, fetch our packing suggestions csv using user's destination's weather conditions (sunny, rainy, etc... ) and temperature. 
+# Using the obtained weather information, fetch our packing suggestions csv using user's destination's weather conditions (sunny, rainy, etc... ) and temperature.
 def suggest_packing(weather_condition, temperature):
     # Fetching the csv stored in the online repository
     packing_url = 'https://raw.githubusercontent.com/evapchiri/HelpMePack/main/packlist.csv'
@@ -58,11 +62,15 @@ def suggest_packing(weather_condition, temperature):
     # Using CSV library to then split the raw data to convert it into a iterable, raw splitted, csv file
     csv_file = csv.reader(raw_data.splitlines())
 
+    #create emtpy packlist
     pack = []
+
+    #add packing items that match the weather condition
     for row in csv_file:
         if row[0] == weather_condition:
             pack.append(row[1])
 
+    #round the temperature to the nearest 5, with a celing of 30 and floor of 0
     if temperature > 25:
         rounded_temperature = str(30)
     elif temperature <= 0:
@@ -70,12 +78,19 @@ def suggest_packing(weather_condition, temperature):
     else:
         rounded_temperature = str(int(math.ceil(temperature / 5.0)) * 5)
 
+    # add packing suggestions that match the rounded temperature
+    csv_file = csv.reader(raw_data.splitlines())
     for row in csv_file:
         if row[2] == rounded_temperature:
             pack.append(row[3])
 
+    #delete any duplicates
     pack = list(set(pack))
+
+    #return the packing list
     return "\n".join(pack)
+
+
 
 # Creating the options for possible user travel destination. To be increased.
 def update_cities(event):
